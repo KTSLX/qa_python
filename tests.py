@@ -11,18 +11,11 @@ class TestBooksCollector:
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
     @pytest.mark.parametrize('name',
                              ['Что делать, если ваш кот хочет вас убить.',
-                              'Что делать, если ваш кот хочет вас убить, а вы и не против']
+                              'Что делать, если ваш кот хочет вас убить, а вы и не против',
+                              '']
                              )
-    def test_add_new_book_long_name_not_added(self, name):
+    def test_add_new_book_wrong_name_not_added(self, name):
         # проверка метода на добавление книги с длинным именем (41 символ или больше)
-        collector = BooksCollector()
-
-        collector.add_new_book(name)
-        assert len(collector.get_books_genre()) == 0
-
-    def test_add_new_book_empty_name_not_added(self):
-        name = ''
-        # проверка метода на добавление книги с пустым именем
         collector = BooksCollector()
 
         collector.add_new_book(name)
